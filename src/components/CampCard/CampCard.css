@@ -1,0 +1,15 @@
+.CampImage{
+    border-radius: 23px;
+}
+.CampTitle{
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 22px;
+    color: #333333;
+}
+.CampPrice{
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    color: #2F80ED;
+}
