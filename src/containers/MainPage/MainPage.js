@@ -37,7 +37,7 @@ class MainPage extends Component {
                                 <Form>
                                     <Field className="Input" type="number" name="number" />
                                     <ErrorMessage name="number" component="div" />
-                                    <button className="SubmitButton" type="submit" disabled={isSubmitting}>
+                                    <button className="SubmitButton" type="submit">
                                         Submit
                                     </button>
                                 </Form>
