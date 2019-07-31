@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 import {NotificationContainer} from "react-notifications";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import {fetchListings} from "../../store/action";
 import CampCard from "../../components/CampCard/CampCard";
@@ -10,34 +11,38 @@ import MainBlock from "../../components/MainBlock/MainBlock";
 import './MainPage.css';
 
 class MainPage extends Component {
-    state = {
-        number: ""
-    };
-
-    setNumber = event => {
-        event.preventDefault();
-        this.setState({number: event.target.value})
-    };
-
-    sendNumberOfListings = event => {
-        event.preventDefault();
-        this.props.fetchListings(this.state.number);
-    };
-
     render() {
         return (
                 <Fragment>
                     <NotificationContainer/>
                     <MainBlock>
-                        <form onSubmit={this.sendNumberOfListings}>
-                            <input className="Input" type="number"
-                                   placeholder="Set number of listings"
-                                   required={true}
-                                   min={1} max={10}
-                                   value={this.state.number}
-                                   onChange={this.setNumber}/>
-                            <button className="SubmitButton" type="submit">Submit</button>
-                        </form>
+                        <Formik
+                            initialValues={{ number: ''}}
+                            validate={values => {
+                                let errors = {};
+                                if (!values.number) {
+                                    errors.number = 'Required';
+                                } else if (
+                                   values.number <= 0 || values.number > 10
+                                ) {
+                                    errors.number = 'Enter number from 1 to 10';
+                                }
+                                return errors;
+                            }}
+                            onSubmit={(values) => {
+                                this.props.fetchListings(values.number);
+                            }}
+                        >
+                            {({ isSubmitting }) => (
+                                <Form>
+                                    <Field className="Input" type="number" name="number" />
+                                    <ErrorMessage name="number" component="div" />
+                                    <button className="SubmitButton" type="submit" disabled={isSubmitting}>
+                                        Submit
+                                    </button>
+                                </Form>
+                            )}
+                        </Formik>
                     </MainBlock>
                     {this.props.loading ?
                     <Spinner/> :
