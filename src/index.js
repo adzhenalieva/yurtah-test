@@ -9,6 +9,8 @@ import {BrowserRouter} from "react-router-dom";
 import thunkMiddleware from 'redux-thunk';
 import reducer from './store/reducer';
 
+
+
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 
 const app = (

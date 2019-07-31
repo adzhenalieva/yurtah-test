@@ -6,6 +6,8 @@ import MainPage from "./containers/MainPage/MainPage";
 import About from "./containers/About/About";
 
 import './App.css';
+import 'react-notifications/lib/notifications.css';
+
 
 class App extends Component {
   render() {

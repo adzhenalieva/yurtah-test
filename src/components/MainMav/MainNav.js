@@ -12,7 +12,7 @@ class Nav extends Component {
                 <div className="Container">
                     <p className="Logo"/>
                     <NavLink className="NavLink" activeClassName="Active" exact={true} to="/">Home</NavLink>
-                    <NavLink className="NavLink" activeClassName="Active" exact={true} to="/about">Add</NavLink>
+                    <NavLink className="NavLink" activeClassName="Active" exact={true} to="/about">About</NavLink>
                 </div>
             </nav>
         );

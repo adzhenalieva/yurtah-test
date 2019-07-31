@@ -1,5 +1,8 @@
 .CampImage{
     border-radius: 23px;
+    width: 274px;
+    height: 177px;
+    margin: 0 auto;
 }
 .CampTitle{
     font-weight: 800;
@@ -12,4 +15,26 @@
     font-size: 22px;
     line-height: 26px;
     color: #2F80ED;
+}
+.CampCard{
+    width: 90%;
+    margin-bottom: 50px;
+}
+
+@media screen and (min-width: 680px) {
+    .CampCard {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 980px) {
+    .CampCard {
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 1114px) {
+    .CampCard {
+        width: 25%;
+    }
 }

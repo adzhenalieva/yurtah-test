@@ -5,8 +5,8 @@ const CampCard = (props) => {
     return (
         <div className="CampCard">
             <img className="CampImage" src={props.image} alt="camp"/>
-            <p className="CampTitle">{props.description}</p>
-            <p className="CampPrice">{props.price}</p>
+            <p className="CampTitle">{props.address}</p>
+            <p className="CampPrice"> $ {props.price}</p>
         </div>
     );
 };
