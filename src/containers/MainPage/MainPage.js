@@ -4,7 +4,7 @@ import {NotificationContainer} from "react-notifications";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import {fetchListings} from "../../store/action";
-import CampCard from "../../components/CampCard/CampCard";
+import CampCard from "../../components/CampCard/CampCard.tsx";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import MainBlock from "../../components/MainBlock/MainBlock";
 
@@ -33,7 +33,7 @@ class MainPage extends Component {
                                 this.props.fetchListings(values.number);
                             }}
                         >
-                            {({ isSubmitting }) => (
+                            {() => (
                                 <Form>
                                     <Field className="Input" type="number" name="number" />
                                     <ErrorMessage name="number" component="div" />
